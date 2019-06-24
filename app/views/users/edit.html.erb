@@ -1,0 +1,17 @@
+<h1>Users#edit</h1>
+<p>Find me in app/views/users/edit.html.erb</p>
+
+<%= form_for(@user) do |f| %>
+Name
+<%= f.text_field :name,autofocus: true %>
+<br>
+<%= attachment_image_tag @user, :profile_image , :fill,60,60 %>
+<label>Image</label>
+<%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+<br>
+Introduction
+<%= f.text_area :introduction_id,autofocus: true %>
+<br>
+<%= f.submit "Update User" %>
+
+<% end %>

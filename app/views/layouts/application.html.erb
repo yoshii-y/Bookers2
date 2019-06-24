@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookers2</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <div>
+        <nav class="nav-header">
+        <ul class="nav-list">
+          
+          <%if user_signed_in? %>
+            <li><span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+              <%=link_to "Home","/books" %>
+            </li>
+            <li><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+              <%=link_to "Users", "/books"%>
+            </li>
+            <li><span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+              <%= link_to "Books","/books"%>
+            </li>
+            <li><span class="glyphicon glyphicon-share" aria-hidden="true"></span>
+              <%= link_to "logout", destroy_user_session_path, method: :delete　%>
+            </li>
+  
+  
+          <% else %>
+            <li>
+              <%=link_to "Home","/books"%>
+            </li>
+            <li>
+              <%=link_to "About", "/books"%>
+            </li>
+            <li>
+              <%= link_to "sign up","/users/sign_up"%>
+            </li>
+            <li>
+              <%= link_to "login","/users/sign_in"%>
+            </li>
+            
+          <% end %>
+
+        </ul>
+        </nav>
+      </div>
+    </header>
+    
+    
+
+
+    <%= yield %>
+  </body>
+</html>

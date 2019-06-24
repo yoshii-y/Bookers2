@@ -1,0 +1,17 @@
+<h2>User info</h2>
+Name
+<%= user.name %><br>
+Introduction
+<%= user.introduction_id %>
+<%= link_to "my","/users/#{current_user.id}/edit" %>
+
+
+<h2>New book</h2>
+<%= form_for(book) do |f| %>
+    <h3>Title</h3>
+    <%= f.text_field :title %>
+    <h3>Opinion</h3>
+    <%= f.text_area :opinion %><br><br>
+
+    <%= f.submit %>
+<% end %>

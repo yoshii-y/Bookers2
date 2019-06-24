@@ -1,0 +1,6 @@
+<%= @book.title %>
+<%= @book.opinion %>
+   <% if @book.user == current_user  %>        
+        <%= link_to "Edit", "/books/#{@book.id}/edit" %>
+        <%= link_to "Destroty", "/books/#{@book.id}", method: :delete %>
+    <% end %>
